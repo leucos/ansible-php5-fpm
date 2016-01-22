@@ -25,6 +25,7 @@ Required packages (installed automatically) :
 Role Variables
 --------------
 
+  - `php5_memory_limit`: max memory per PHP process (default: 128M)
   - `php5_post_max_size`: max post size (default: 40M)
   - `php5_upload_max_filesize`: max upload size for files (default: 20M)
   - `php5_add_nginx_default`: whether the role will add a default & php5-fpm-enabled virtuahost in nginx config

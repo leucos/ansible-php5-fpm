@@ -2,5 +2,6 @@
 
 php5_add_nginx_default: no
 php5_fix_pathinfo: 1
+php5_memory_limit: 128M
 php5_post_max_size: 40M
 php5_upload_max_filesize: 20M
