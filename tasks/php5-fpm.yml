@@ -36,7 +36,22 @@
   when: pear is defined
 
 - name: Replaces nginx default server conf for php5-fpm
-  action: template src="../templates/default-fpm.j2" dest=/etc/nginx/sites-available/default
+  template: 
+    src: "../templates/default-fpm.j2"
+    dest: /etc/nginx/sites-available/default
   when: php5_add_nginx_default
   notify:
     - Restart nginx
+
+- name: Adds composer PPA
+  apt_repository:
+    repo: ppa:duggan/composer
+    state: present
+    update_cache: yes
+  when: php5_install_composer
+
+- name: Installs composer
+  apt:
+    pkg: php5-composer
+    state: latest
+  when: php5_install_composer
